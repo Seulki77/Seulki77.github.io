@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>커피랩에 오신 것을 환영합니다.</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR" rel="stylesheet">
+    <style>
+        @import url("http://fonts.googleapis.com/earlyaccess/kopubbatang.css");
+        * {margin:0; padding: 0; }
+        body, html { width: 100%; height: 100%; font-family: 'Noto Sans KR', sans-serif; overflow-x:hidden; }
+        ul{ list-style: none; }
+        a{ text-decoration: none; }
+        img{ border: 0; }
+        
+        /* 공동 서식 */
+        *{padding: 0; margin: 0; font-family: 'Noto Serif KR', sans-serif; }
+        .wrap {width: 100%; height:100%; }
+        .hd {width: 100%; height: 140px;}
+        #con {width: 1920px; height:1200px;}
+        .hdWrap {width: 1920px; margin: :0 auto; height:140; position: relative;}
+        .page {clear: both; width: 100%; height: 100%; position: relative;}
+        .proTitle1 {font-family: 'Nanum Myeongjo', serif; font-size: 20px; line-height:1.8;}
+        .midTitle {font-family: 'Nanum Myeongjo', serif; font-size: 60px; line-height:1.8; text-align:center;}
+        .pageTitle {font-family: 'Noto Sans KR', sans-serif; font-size: 48px; line-height:1.8; text-align: center; font-weight: 600;}
+        .more {display: block; width: 150px;line-height: 3.5; text-align: center; background-color: #67734d; color: #ffffff; margin: 30px auto;}
+        .detail {display: block; width: 120px; line-height: 2.4; text-align: center; background: #1c1c1c; color:#fff; margin:30px auto; box-shadow:1px 1px 1px #fff; border:1px solid #f0f0f0;}
+        
+        
+        /* 세부 영역 설정 */
+        /* 헤더 영역 설정 */
+        .tnb {width: 100%; height:100px; clear:both; padding-top: 15px;}
+        .tnb .right {float:right; padding-right:0px;}
+        .tnb li {float: left; padding-right: 25px; }
+        .gnb {background-image: url(./images/main_1_manu.png); width: 1920px; height: 80px; position:fixed; top:60px; z-index: 100; background-size: 100% 100%; }
+        .logo {display:block; float:left; margin:-42px 0; }
+        #menu {float: left}
+        #menu li {float: left; padding: 0px 80px;}
+        #menu li a {color: #fff; line-height: 80px; }
+        .right li a {color: #fff;}
+        #menu li a:hover {color: #67734d}
+        
+        #menu li .sub { display: none; position: absolute; background: rgba(0,0,0,0.7); margin-left: -80px;}
+        #menu li:hover .sub {display:block;}
+        #menu li .sub li {clear: both;}
+        #menu li .sub li a {line-height:4;2px;}
+        
+        
+        /* 콘텐츠 영역 설정 */
+        .hd {position: absolute; z-index: 100; }
+        #visual {width: 100%; height: 100%;}
+        .imgBox {clear: both; width: 400%; height: 100%;}
+        .imgBox li {width: 25%; float:left; height: 100%; position: relative; }
+        .rBan {float:right;width: 50%; height: 100%; position:relative; }
+        .lBan {float:left; width: 50%; height: 100%; position:relative; }
+        .lBan .img {position:absolute; right:0%; top:-120px; }
+        .rBan .img {position:absolute; left:0%; top:-120px;}
+        .item2 .lBan .img, .item3 .lBan .img {top:130px; }
+        .item2 .rBan .img, .item3 .rBan .img {top:130px; }
+        
+        
+        #visual .item1 {background-image: url("./images/main_1_bg.png"); background-size: 100% 100%; }
+        #visual .item2 {background-image: url("./images/main_1_bg.png"); background-size: 100% 100%;}
+        #visual .item3 {background-image: url("./images/main_1_bg.png"); background-size: 100% 100%;}
+        #visual .titBox {position:absolute; top:30%; left:22%; text-align:center; z-index:90px;}
+        #visual .titBox .tit {margin-left: 100px; }
+        #visual .more {position: absolute; width:14%; left: 43%; bottom: 30%; z-index: 21; display: block; box-shadow: 1px 1px 10px black;}
+        
+        #page2 {overflow:hidden;}
+        #page2 .page2Bg1 {background-image: url("./images/main_3_bg1.png");}
+        #page2 .page2Bg2 {background-image: url("./images/main_3_bg1.png");}
+        #page2 .page2Bg3 {background-image: url("./images/main_3_bg1.png");}
+        .btnBox {width: 170px; margin: 60px auto;}
+        .btnBox li {float: left; margin-left: 10px;}
+        .btnBox li button {display: block; width: 12px; background: #ccc; height:12px; border-radius: 7px; outline: 0; border: 0;}
+        .btnBox li button:hover {cursor: pointer; background: #333;}
+        .btnBox li button.active {background:#67734d; width: 50px;}
+        #page2 .pageWrap { clear:both; width:100%; height:100%; }
+        #page2 .imgBox {padding-top: -5px;}
+        #page2 .imgBox li { text-align: center; height:100%; position:relative; top: -6%;}
+        #page2 .imgBox img { display:block; height:100%; margin:0 auto; margin-top:-70px;}
+        
+        
+        
+        .proBox { width: 100%; height: 100%; margin:0 15%;}
+        .proBox li { float:left; width: 25%; height: 100%; }
+        .proBox li img { display: block; width: 100%; height: auto;}
+        
+        
+        #page3 .pageWrap { height: 100%; height:100%; }
+        #page3 { background-image: url("./images/main_2_bgbg.png"); background-size: 100% 100%; overflow:hidden;}
+        .p3Title {margin:2% 12%;}
+        #page3 .proTitle1 { color:black; text-align:center; font-size: 2em;}
+        
+        
+        #page4 {background-image: url("./images/main_4_bg.png");}
+        #page4 .pageTitle {line-height: 4;}
+        .proBox2 {width: 100%; height: 100%;}
+        .proBox2 li {width: 25%; margin-right:5%; float:left; position: relative;}
+        .proBox2 li.first { margin-left:7.5%; }
+        .proBox2 li.last { margin-right:7.5%; }
+        .proBox2 li a { display:block; width:100%; }
+        .proBox2 li a img { display:block; width:100%; height:auto; margin-top:130px;}
+        .proBox2 li span { position:absolute; top:30px; left:30px; }
+        
+        
+        #page5 {width: 100%; height:540px;  clear:both;}
+        #page5 .col {width: 50%; height:540px; background-position: center center; background-repeat: no-repeat; background-size: 100% 100%; }
+        #page5 .item1 {background-image: url("./images/main_5_bg_1.png"); 
+        float:left; }
+        #page5 .item2 {background-image: url("./images/main_5_bg_2.png"); float:right; }
+        #page5 .pageTitle {color: #fff; line-height: 3.4;}
+        #page5 .midTitle {color: #fff; line-height: 2.4;}
+        #search {display: block; width: 300px; height: 42px; margin: 10px auto; padding-left: 25px; outline: 0; border: 0; border-radius: 20px; background-image: url("./images/search2.png")
+            
+            /*여기 이미지 돋보기만*/
+            
+            
+            ; background-position: right center; background-repeat: no-repeat; }
+        #page5 .noti {text-align: center; color:#fff }
+        
+        
+        
+        /* 푸터 영역 설정 */
+        .ft {clear: both; height: 200px; width: 100%;}
+        .ftWrap {width: 1920px; height: 200px; margin: 0 auto; background-image: url("./images/main_6_bg.png"); background-position: left center; background-repeat: no-repeat;}
+        .fnb {width: 60%; float:left; margin-left: 80px; }
+        .fnb li {float:left; padding:10px;}
+        
+        /* 색상, 크기 조절 */
+        
+        .fnb a {color:#fff; font-size: 0.9em;}
+        .fnb a.active {color: #f442b0}
+        .cp {clear:both; color:#fff; font-size: 0.9em; line-height: 3; padding-left: 15px; padding-top: 20px; }
+        .snb {width:30%; float:right; padding-top: 20px; }
+        .snb li {float: right; padding: 10px; }
+        .Totop {display: block; padding: 15px; position: fixed; right: 100px; bottom: 260px; z-index: 9999; background: #ececec; color: #222; box-shadow:0px 0px 2px #000; border: 1px solid #ccc;}
+        
+    </style>
+    <script></script>
+</head>
+<body>
+  <div class="wrap">
+    <headr class="hd">
+      <div class="hdWrap">
+          <nav class="tnb">
+              <ul class="right">
+                  <li><a href="login.html" class="login">로그인</a></li>
+                  <li><a href="join.html" class="join">회원가입</a></li>
+              </ul>
+          </nav>
+          <nav class="gnb">
+              <a href="index.html" class="logo"><img src="./images/main_1_logo.png" alt="로고"></a>
+              <ul id="menu">
+                  <li>
+                      <a href="">Lab Story</a>
+                          <ul class="sub">
+                              <li><a href="">커피랩 소개</a></li>
+                              <li><a href="">커피의 생각</a></li>
+                              <li><a href="">홍보센터</a></li>
+                          </ul>
+                  </li>
+                  <li>
+                      <a href="">Menu</a>
+                          <ul class="sub">
+                              <li><a href="">All</a></li>
+                              <li><a href="">Coffee</a></li>
+                              <li><a href="">Frappuccino</a></li>
+                              <li><a href="">Smoothi</a></li>
+                              <li><a href="">Ade</a></li>
+                              <li><a href="">Tea</a></li>
+                          </ul>
+                  </li>
+                  <li>
+                      <a href="">Event</a>
+                          <ul class="sub">
+                              <li><a href="">진행중인 이벤트</a></li>
+                              <li><a href="">당첨자 발표</a></li>
+                          </ul>
+                  </li>
+                  <li>
+                      <a href="">Lab Store</a>
+                          <ul class="sub">
+                              <li><a href="">매장 찾기</a></li>
+                          </ul>
+                  </li>
+                  <li>
+                      <a href="">Customer</a>
+                          <ul class="sub">
+                              <li><a href="">자주하는 질문</a></li>
+                              <li><a href="">1:1문의하기</a></li>
+                              <li><a href="">공지사항</a></li>
+                          </ul>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+ </headr>
+      <section id="con">
+          <div class="page" id="main">
+            <figure id="visual">
+               <ul class="imgBox">
+                <li class="item1">
+                    <div class="lBan">
+                        <img src="./images/main_1_coffee_1_1.png" alt="비주얼11" class="img">
+                    </div>
+                    <div class="rBan">
+                        <img src="./images/main_1_coffee_1_2.png" alt="비주얼12" class="img">
+                    </div>
+                    <div class="titBox">
+                        <img src="./images/main_1_text.png" alt="비주얼 제목1" class="tit">
+                    </div>
+                </li>
+                <li class="item2">
+                    <div class="lBan">
+                        <img src="./images/main_1_coffee_2_1.png" alt="비주얼21" class="img">
+                    </div>
+                    <div class="rBan">
+                        <img src="./images/main_1_coffee_2_2.png" alt="비주얼22" class="img">
+                    </div>
+                    <div class="titBox">
+                        <img src="./" alt="비주얼 제목2" class="tit">
+                    </div>
+                </li>
+                <li class="item3">
+                    <div class="lBan">
+                        <img src="" alt="" class="img">
+                    </div>
+                    <div class="rBan">
+                        <img src="" alt="" class="img">
+                    </div>
+                    <div class="titBox">
+                        <img src="" alt="" class="tit">
+                    </div>
+                </li>
+              </ul>
+            <a href="" class="more"><span>랩스토리 보기</span></a>
+           </figure>
+          </div>
+          <div class="page" id="page2">
+              <div class="pageWrap">
+                  <ul class="btnBox">
+                      <li><button class="active"></button></li>
+                      <li><button></button></li>
+                      <li><button></button></li>
+                  </ul>
+                  <ul class="imgBox">
+                      <li class="page2Bg1">
+                          <img src="./images/main_3_11.png" alt="메인 배너1">
+                      </li>
+                      <li class="page2Bg2">
+                          <img src="" alt="">
+                      </li>
+                      <li class="page2Bg3">
+                          <img src="" alt="">
+                      </li>
+                  </ul>
+            </div>      
+          </div>
+          <div class="page" id="page3">
+              <div class="pageWrap">
+                  <img src="./images/main_2_text.png" alt="타이틀" class="p3Title">
+                  <ul class="proBox">
+                      <li>
+                          <h3 class="proTitle1">리얼 딸기 스무디</h3>
+                          <img src="./images/main_2_sb.png" alt="리얼 딸기 스무디">
+                      </li>
+                      <li>
+                          <h3 class="proTitle1">리얼 블루베리 스무디</h3>
+                          <img src="./images/main_2_bb.png" alt="리얼 블루베리 스무디">
+                      </li>
+                      <li>
+                          <h3 class="proTitle1">리얼 망고 스무디</h3>
+                          <img src="./images/main_2_mango.png" alt="리얼 망고 스무디">
+                      </li>
+                  </ul>
+              </div>
+            </div>  
+          <div class="page" id="page4">
+              <div class="pageWrap">
+                  <h2 class="pageTitle">Lab Story</h2>
+                  <h1 class="midTitle">우리들의 이야기, 커피랩</h1>
+                  <ul class="proBox2">
+                      <li class="first">
+                          <a href="">
+                              <img src="./images/main_4_s1.png" alt="페이스북" title="페이스북">
+                          </a>
+                          <span class="sns1"></span>
+                      </li>
+                      <li>
+                          <a href="">
+                              <img src="./images/main_4_s2.png" alt="인스타그램" title="인스타그램">
+                          </a>
+                          <span class="sns1"></span>
+                      </li>
+                      <li class="last">
+                          <a href="">
+                              <img src="./images/main_4_s3.png" alt="네이버블로그" title="네이버블로그">
+                          </a>
+                          <span class="sns1"></span>
+                     </li>
+                  </ul>
+             </div>  
+          </div>
+          <div class="page" id="page5">
+                  <div class="col item1">
+                      <h2 class="pageTitle">Lab Store</h2>
+                      <h1 class="midTitle">매장 찾기</h1>
+                      <input type="text" id="search" placeholder="매장명 또는 지역을 입력하세요.">
+                      <a href="" class="detail">자세히 보기</a>
+                  </div>
+                  <div class="col item2">
+                      <h2 class="pageTitle">가맹모집 설명회</h2>
+                      <h1 class="midTitle">대전 지역</h1>
+                      <p class="noti">5월 16일(수) 오후 2시</p>
+                      <a href="" class="more">
+                          <span>참가신청하기</span>
+                      </a>
+                  </div>
+         </div>
+         <footer class="ft">
+              <div class="ftWrap">
+                  <nav class="fnb">
+                      <ul>
+                          <li><a href="">개인정보 처리방침</a></li>
+                          <li><a href="">운영·관리방침</a></li>
+                          <li><a href="">이용약관</a></li>
+                          <li><a href="">윤리신고센터</a></li>
+                          <li><a href="">거래희망사전등록</a></li>
+                      </ul>
+                      <p class="cp">
+                          <span>COFFEELAB</span>
+                          <span>대전광역시 동구 자양동 67-17번지</span>
+                          <span>042-624-7200</span>
+                          <br/>
+                          <span>강병호</span>
+                          <span>사업자등록번호 684-43-00178</span>
+                          <span>coffeelab@naver.com</span>
+                      </p>
+                  </nav>
+                  <nav class="snb">
+                      <ul>
+                          <li>
+                              <a href="https://ko-kr.facebook.com/" title="facebook">
+                              <img src="./images/main_6_sns1.png" alt="페이스북">
+                              </a>
+                          </li>
+                          <li>
+                              <a href="httpx://blog.naver.com/" title="blog">
+                              <img src="./images/main_6_sns2.png" alt="블로그">
+                              </a>
+                          </li>
+                          <li>
+                              <a href="https://www.instagram.com/" title="instagram">
+                              <img src="./images/main_6_sns3.png" alt="인스타그램">
+                              </a>
+                          </li>
+                      </ul>
+                  </nav>
+              </div>
+      </footer>
+      </section>
+ </div>
+
+    <a href="" class="Totop">
+        <span>TOP</span>
+    </a>
+</body>
+</html>
