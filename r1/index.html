@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- IE 최신버전으로.-->
+    <meta name="keywords" content="다이소, 아성 다이서, 아성, 문구, 스토어">
+    <meta name="Description" content="대한민국 No.1 생활문화 기업">
+    <!-- [if IE]
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    html5 버전 미만? 이하? 뭐 설정하는거..-->
+    <link rel="shortcut icon" href="~.ico" type="image/x-icon">
+    <!-- 아마 탭 앞에 나타나는 아이콘..? -->
+    <link rel="icon" sizes="16x16 32x32 48x48 64x64x 72x72 96x96 114x114 128x128" href="~.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-preconposed" href="~.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="~.png">
+    <title> :: 아성 다이소 :: </title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- 이 밑에 웹폰트~ -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    
+    
+    <script>
+        /*콜메뉴*/
+        $(document).ready(function(){
+            $(".mMenu").click(function(){
+                $(".collWrap, .cover, .cover1").addClass("on")
+                $(".logo, .mMenu, .searchBtn").css("z-index", "0")
+            });
+        });
+        
+        $(document).ready(function(){
+           $(".back").click(function(){
+                $(".logo, .mMenu, .searchBtn").css("z-index", "2")
+                $(".collWrap, .cover, .cover1").removeClass("on")
+           });
+        });
+        $(document).ready(function(){
+           $(".cover, .cover1").click(function(){
+                $(".logo, .mMenu, .searchBtm").css("z-index", "2")
+                $(".collWrap, .cover, .cover1") .removeClass("on")
+           });
+        });
+        
+        
+        /*콜메뉴 세부*/
+        $(document).ready(function(){
+            $(".mGnb li").click(function(){
+                $(this).find(".mSubList").stop().slideToggle(600)
+            });
+        });
+        
+        
+        
+        /*서치*/
+        $(document).ready(function(){
+            $(".searchBtn").click(function(){
+                $(".searchWrap").toggleClass("on")
+            });
+        });
+        
+        
+        
+        
+        
+        /* vs */
+        $(document).ready(function(){
+            var wd = parseInt($(".vsBox").width());
+            var cnt = $(".vsList li").length;
+            var intv = setInterval(function(){
+                slide();
+            }, 3000);
+            
+            function slide(){
+                $(".vsList").not(":animated").animate({
+                    "margin-left": - wd + "px"
+                }, 800, function(){
+                    $(".vsList li").eq(0).appendTo($(".vsList"));
+                    $(".vsList").css("margin-left", "0px");
+                });
+            };
+        })
+    </script>
+    
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'NanumSquare', sans-serif;
+        }
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+        ul, li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            border: 0;
+        }
+        
+        .wrap {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hd {
+            width: 100%;
+            height: 50px;
+            background-color: #fff;
+            position: fixed;
+            border-bottom: 1px solid #E30020;
+            z-index: 1;
+        }
+        
+        .logo {
+            position: absolute;
+            left: calc((100% - 135px)/2);
+            top: 4.5px;
+            z-index: 2;
+            transition: 0.4s;
+        }
+        
+        
+        .sns {
+            display: none;
+        }
+        
+        .topMenu {
+            display: none;
+        }
+        
+        .dMenu {
+            display: none;
+        }
+        
+        
+        
+        
+        .searchBtn {
+            position: absolute;
+            right: 5%;
+            top : 12px;
+            cursor: pointer;
+            z-index: 2;
+            transition: 0.4s;
+        }
+        
+        
+        .topMenu {
+            position: absolute;
+            top: 28px;
+            right: 8%;
+            z-index: 2;
+        }
+        
+        .topMenu ul li {
+            float: left;
+            font-size: 0.8em;
+            margin-left: 15px;;
+        }
+        .topMenu ul li a {
+            color: #444;
+        }
+        .topMenu ul li a:hover {
+            color: #E30020;
+            text-decoration: underline;
+        }
+        
+        
+        .dMenu {
+            position: absolute;
+            top: 15px;
+            left: calc((100% - 747.56px)/2);
+            z-index: 2;
+        }
+        .gnb li {
+            float: left;
+            margin-left: 100px;
+            cursor: pointer;
+            color: #444;
+        }
+        .gnb li:hover {
+            color: #E30020;
+            font-weight: bold;
+        }
+        
+        
+        .subList {
+            display: none;
+        }
+        
+        
+        
+        
+        
+        
+        
+        .mMenu {
+            display: block;
+            position: absolute;
+            left: 5%;
+            top: 14.5px;
+            cursor: pointer;
+            z-index: 2;
+            transition: 0.8s;
+        }
+        
+        .cover1 {
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            top: 0px;
+            background: rgba(0,0,0,0);
+            z-index: 0;
+            transition: 0.8s;
+        }
+        .cover1.on {
+            z-index: 98;
+            background: rgba(0,0,0,0.8);
+        }
+        
+        
+        
+        .searchBox {
+            display: block;
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            top: 50px;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .searchWrap {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            margin-top: -20%;
+            background-color: #E30020;
+            transition: 0.4s;
+        }
+        .searchWrap.on {
+            margin-top: 0%;
+        }
+        
+        .search {
+            width: 300px;
+            height: 28px;
+            background: rgba(0,0,0,0);
+            border: 0;
+            border-bottom: 1px solid #fff;
+            position: absolute;
+            top: calc((100% - 28px)/2);
+            left: calc((100% - 300px)/2);
+            color: #fff;
+        }
+        
+        .search::placeholder {
+            color: #fff;
+        }
+        
+        
+        
+        
+        .collMenu {
+            position: absolute;
+        }
+        
+        .collWrap {
+            width: 280px;
+            height: 100%;
+            background-color: #fff;
+            transition: 0.6s;
+            z-index: 99;
+            margin-left: -120%;
+            position: fixed;
+            top: 0;
+        }
+        
+        .collWrap.on {
+            margin-left: 0%;
+        }
+        
+        .mHd {
+            width: 100%;
+            height: 80px;
+            background-color: #E30020;
+            position: absolute;
+        }
+        
+        .back {
+            position: absolute;
+            left: 5%;
+            top: 14.5px;
+            cursor: pointer;
+        }
+        
+        .mLogo {
+            display: none;
+            position: absolute;
+            right: 3%;
+            top: 14.5px;
+        }
+                
+        .mTopMenu li {
+            position: relative;
+            float: left;
+            margin-left: 7%;
+            left: 142px;
+            top: 50px
+        }
+        .mTopMenu li a {
+            color: #fff;
+            font-size: 0.8em;
+        }
+        .mMenuList {
+            position: absolute;
+            width: 100%;
+        }
+        .mGnb {
+            position: absolute;
+            width: 100%;
+            top: 80px;
+        }
+        .mGnb li {
+            width: 100%;
+            position: relative;
+            clear: both;
+            line-height: 14px;
+        }
+        
+        .mGnb li div {
+            cursor: pointer;
+            font-size: 1.1em;
+            border-bottom: 0.5px solid #E30020;
+        }
+        
+        .mGnb li div.on {
+            background-color: #F9CCD2;
+        }
+        
+        .mMenuText {
+            margin-left: 5%;
+            line-height: 60px;
+        }
+        
+        .mSubList {
+            display: none;
+            width: 100%;
+            background-color: cornsilk;
+        }
+        
+        .mSubList.on {
+            display: block;
+        }
+        
+        .mSubList li {
+            width: 100%;
+            clear: both;
+            position: relative;
+            border-bottom: 1px solid #E30020;
+        }
+        
+        .mSubList li a {
+            width: 100%;
+            font-weight: 300;
+            margin-left: 15%;
+            color: #333;
+        }
+        
+        .mSubList li a p {
+            margin-left: 15%;
+        }
+        
+        
+        .cover {
+            position: fixed;
+            width: 100%;
+            height: calc(100% - 50px);
+            top: 50px;
+            background: rgba(0,0,0,0);
+            transition: 0.8s;
+            z-index: 0;
+        }
+        .cover.on {
+            background: rgba(0,0,0,0.8);
+            z-index: 98;
+        }
+        
+        
+        
+        
+        .con1 {
+            position: relative;
+            top: 51px;
+        }
+        
+        .con1 img {
+            width: 100%;
+            position: absolute;
+        }
+        
+        
+        
+        .vs {
+            width: 100%;
+            height: 100%;
+            top: 51px;
+            position: absolute;
+        }
+        .vsBox {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .vsList {
+            width: 200%;
+            height: 100%;
+        }
+        .vsList li {
+            float: left;
+            width: 50%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .vsItem1 {
+            background-image: url(./img/vs1.png);
+        }
+        .vsItem2 {
+            background-image: url(./img/vs1.png);
+        }
+        
+        
+        
+        
+        
+        
+        
+        /* 모바일 해상도 */
+        @media screen and (max-width:767px) {
+            
+        }
+        
+        /* 태블릿 해상도 */
+        @media screen and (min-width:768px) and (max-width:959px) {
+            
+        }
+        
+        /*데스크탑 해상도*/
+        @media screen and (min-width:960px) {
+            .sns, .topMenu, .dMenu {
+                display: block;
+            }
+            .mMenu {
+                display: none;
+            }
+            
+            .logo {
+                left: 5%;
+            }
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="hd">
+            <a href="" class="logo">
+                <img src="./img/logo_r.png" alt="logo">
+            </a>
+            <ul class="sns">
+                <li>
+                    <a href=""><img src="" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="" alt=""></a>
+                </li>
+                <li>
+                    <a href=""><img src="" alt=""></a>
+                </li>
+            </ul>
+            <nav class="topMenu">
+                <ul>
+                    <li>
+                        <a href="">로그인</a>
+                    </li>
+                    <li>
+                        <a href="">회원가입</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="searchBtn"><img src="./img/search_r2.png" alt="검색"></div>
+            <nav class="dMenu">
+                <ul class="gnb">
+                    <li>
+                        <p>다이소</p>
+                        <div class="subList">
+                            <ul>
+                                <li>
+                                    <a href="">CEO 인사말</a>
+                                </li>
+                                <li>
+                                    <a href="">다이소 소개</a>
+                                </li>
+                                <li>
+                                    <a href="">찾아오시는 길</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p>상품</p>
+                        <div class="subList">
+                            <ul>
+                                <li>
+                                    <a href="">취급 품목</a>
+                                </li>
+                                <li>
+                                    <a href="">신상품</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p>가맹안내</p>
+                        <div class="subList">
+                            <ul>
+                                <li>
+                                    <a href="">요건 및 절차</a>
+                                </li>
+                                <li>
+                                    <a href="">가맹점 개설 상담</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p>납품안내</p>
+                        <div class="subList">
+                            <ul>
+                                <li>
+                                    <a href="">납품 상담</a>
+                                </li>
+                                <li>
+                                    <a href="">동반 성장</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <p>커뮤니티</p>
+                        <div class="subList">
+                            <ul>
+                                <li>
+                                    <a href="">공지사항</a>
+                                </li>
+                                <li>
+                                    <a href="">소식</a>
+                                </li>
+                                <li>
+                                    <a href="">고객의 소리</a>
+                                </li>
+                                <li>
+                                    <a href="">FAQ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mMenu"><img src="./img/menu_r2.png" alt="collMenu"></div>
+            <div class="cover1"></div>
+        </header>
+        <div class="searchBox">
+            <div class="searchWrap">
+                <input type="text" class="search" placeholder="제품명을 입력해주세요." maxlength="20">
+            </div>
+        </div>
+        <div class="collMenu">
+            <div class="collWrap">
+                    <header class="mHd">
+                        <div class="back"><img src="./img/back_w.png" alt="back"></div>
+                        <div class="mLogo"><img src="./img/logo_w.png" alt="logo"></div>
+                        <div class="mTopMenu">
+                            <li>
+                                <a href="" class="mLogin">로그인</a>
+                            </li>
+                            <li>
+                                <a href="" class="mJoin">회원가입</a>
+                            </li>
+                        </div>
+                    </header>
+                    <div class="mMenuList">
+                        <ul class="mGnb">
+                            <li>
+                                <div>
+                                    <p class="mMenuText">다이소</p>
+                                </div>
+                                <ul class="mSubList">
+                                    <li>
+                                        <a href=""><p>CEO 인사말</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>다이소 소개</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>찾아오시는 길</p></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <p class="mMenuText">상품</p>
+                                </div>
+                                <ul class="mSubList">
+                                    <li>
+                                        <a href=""><p>취급품목</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>신상품</p></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <p class="mMenuText">가맹안내</p>
+                                </div>
+                                <ul class="mSubList">
+                                    <li>
+                                        <a href=""><p>요건 및 절차</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>가맹점 개설 상담</p></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <p class="mMenuText">납품안내서</p>
+                                </div>
+                                <ul class="mSubList">
+                                    <li>
+                                        <a href=""><p>납품상담</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>동반성장</p></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <p class="mMenuText">커뮤니티</p>
+                                </div>
+                                <ul class="mSubList">
+                                    <li>
+                                        <a href=""><p>공지사항</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>소식</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>고객의 소리</p></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><p>FAQ</p></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="cover"></div>
+        </div>
+        <div class="vs">
+            <div class="vsBox">
+                <ul class="vsList">
+                    <li class="vsItem1"><a href=""></a></li>
+                    <li class="vsItem2"><a href=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- div.con1>div.con1Wrap>(div.con1Tit>img)+(div.con1Box>ul.con1List>li.con1Btn*6>p)+(div.ImgBox>ul>li*6>a>img)
+        여기에 어떤 내용을 담으려 햇는지 모르겟어서 일단 넘김 -->
+        <div class="con1">
+            <div class="con1Wrap">
+                <div class="con1Tit"><img src="" alt=""></div>
+                <div class="con1Box">
+                    <ul class="con1List">
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                        <li class="con1Btn">
+                            <p></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ImgBox">
+                    <ul>
+                        <li><a href=""><img src="" alt=""></a></li>
+                        <li><a href=""><img src="" alt=""></a></li>
+                        <li><a href=""><img src="" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="con2">
+            <div class="con2Wrap">
+                <ul class="boxList">
+                    <li class="con2Box"><a href=""><img src="" alt=""></a></li>
+                    <li class="con2Box"><a href=""><img src="" alt=""></a></li>
+                    <li class="con2Box"><a href=""><img src="" alt=""></a></li>
+                    <li class="con2Box"><a href=""><img src="" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="con3">
+            <div class="con3Wrap">
+                <h2 class="noti"></h2>
+                <a href="" class="more"><img src="" alt=""></a>
+                <ul class="notiList">
+                    <li>
+                        <a href="" class="notiTit"></a>
+                        <p class="date"></p>
+                    </li>
+                    <li>
+                        <a href="" class="notiTit"></a>
+                        <p class="date"></p>
+                    </li>
+                    <li>
+                        <a href="" class="notiTit"></a>
+                        <p class="date"></p>
+                    </li>
+                    <li>
+                        <a href="" class="notiTit"></a>
+                        <p class="date"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="ft"></footer>
+    </div>
+</body>
+</html>
